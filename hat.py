@@ -143,12 +143,16 @@ def displayRight(temp, humidity):
     draw.text((2, 2+20), humidity, font=font, fill=255)
     dispRight.image(image)
     dispRight.display()
+    
+def measureSoil():
+    print("Soil " +str(mcp.read_adc(2)))
 
 print('Program is running, press Ctrl-C to quit...')
 
 # Main program loop.
 def loop():
     while True:
+        measureSoil()
         time.sleep(1)
     
 def destroy():
